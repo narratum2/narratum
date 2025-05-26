@@ -1,0 +1,143 @@
+/* Map Section Styles */
+.map-section {
+    position: relative;
+    padding: 80px 0;
+    overflow: hidden;
+}
+
+.map-container {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+    height: 600px;
+    background-color: rgba(13, 24, 37, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.map-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500"><path d="M250,90 L280,90 L300,60 L370,60 L400,40 L450,40 L460,50 L500,50 L540,70 L560,70 L580,50 L620,50 L660,70 L720,70 L750,90 L800,90 L850,60 L900,60 L930,90 L970,90 L970,200 L930,200 L900,220 L850,220 L830,240 L750,240 L720,260 L660,260 L640,280 L580,280 L560,300 L500,300 L460,320 L400,320 L370,340 L300,340 L280,360 L250,360 L200,380 L150,380 L120,360 L80,360 L50,340 L30,340 L30,90 L50,90 L80,70 L120,70 L150,90 L200,90 Z" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1" /></svg>');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 30%, var(--bg-secondary) 100%);
+}
+
+.map-location {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.map-location::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 24px;
+    height: 24px;
+    background-color: rgba(251, 191, 36, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.3s ease;
+}
+
+.map-location:hover {
+    background-color: var(--accent-cyan);
+}
+
+.map-location:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.map-location-label {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(13, 24, 37, 0.9);
+    color: var(--text-primary);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.map-location:hover .map-location-label {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.map-connection {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(to right, rgba(251, 191, 36, 0.5), rgba(125, 211, 252, 0.5));
+    transform-origin: left center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.map-connection.visible {
+    opacity: 0.3;
+}
+
+.map-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 40px;
+}
+
+.map-stat {
+    text-align: center;
+}
+
+.map-stat-number {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--accent-gold);
+    margin-bottom: 8px;
+    display: block;
+}
+
+.map-stat-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    .map-container {
+        height: 400px;
+    }
+    
+    .map-stats {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

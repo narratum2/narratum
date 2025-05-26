@@ -1,0 +1,125 @@
+.polygon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.polygon {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border: 1px solid var(--accent-gold);
+    opacity: 0.3;
+    pointer-events: none;
+    animation: rotateSlow 30s linear infinite;
+}
+
+.polygon:nth-child(2n) {
+    border: 1px solid var(--accent-cyan);
+}
+
+.polygon:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 4px;
+    height: 4px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes rotateSlow {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Enhanced orbital artifacts */
+.orbital-artifact {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.3;
+    transition: transform 0.5s ease;
+}
+
+.orbital-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.orbital-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg) translateY(-100px);
+    animation: orbitRotate 15s linear infinite;
+}
+
+@keyframes orbitRotate {
+    0% { transform: translateX(-50%) rotate(0deg) translateY(-100px); }
+    100% { transform: translateX(-50%) rotate(360deg) translateY(-100px); }
+}
+
+/* Enhanced star connections */
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: var(--accent-gold);
+    opacity: 0.7;
+    z-index: 2;
+    pointer-events: none;
+    animation: pulseStar 4s ease-in-out infinite;
+}
+
+.symbol-point {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--accent-cyan);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: pulsePoint 3s ease-in-out infinite;
+}
+
+.star-connection {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
+    opacity: 0;
+    transform-origin: left center;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.8s ease;
+}
+
+@keyframes pulseStar {
+    0%, 100% { opacity: 0.4; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.2); }
+}
+
+@keyframes pulsePoint {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.5); }
+}

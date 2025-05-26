@@ -1,0 +1,145 @@
+/* Mobile Optimization Enhancements */
+@media (max-width: 768px) {
+  /* Simplify hero effects for better readability */
+  .hero-section .keyword-nebula {
+    opacity: 0.3 !important; /* Reduce opacity of keywords */
+  }
+  
+  .hero-section .moving-square {
+    opacity: 0.2 !important; /* Make background elements more subtle */
+  }
+  
+  /* Increase text contrast and readability */
+  .hero-section h1 {
+    font-size: 2.5rem !important;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+  }
+  
+  .hero-section p {
+    font-size: 1rem !important;
+    line-height: 1.4 !important;
+    max-width: 90% !important;
+    margin: 0 auto !important;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.4) !important;
+  }
+  
+  /* Simplify navigation for mobile */
+  .nav-dots {
+    transform: scale(0.8) !important;
+  }
+  
+  /* Optimize Strategic Frequencies section for mobile */
+  .frequency-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 1.5rem !important;
+  }
+  
+  .frequency-circle {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  
+  /* Ensure popup content is readable on mobile */
+  .popup-content {
+    width: 85% !important;
+    max-width: 300px !important;
+    padding: 15px !important;
+  }
+}
+
+/* Single Contact Form (replacing newsletter) */
+.contact-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: rgba(10, 25, 47, 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.contact-form-container h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.8rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #fff;
+  font-family: inherit;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.form-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.submit-button {
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #1a3a5f, #0f2235);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-button:hover {
+  background: linear-gradient(135deg, #254b79, #1a3a5f);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.submit-button:active {
+  transform: translateY(0);
+}
+
+/* Mobile optimization for contact form */
+@media (max-width: 768px) {
+  .contact-form-container {
+    padding: 1.5rem;
+    width: 90%;
+  }
+  
+  .contact-form-container h2 {
+    font-size: 1.5rem;
+  }
+  
+  .submit-button {
+    width: 100%;
+  }
+}

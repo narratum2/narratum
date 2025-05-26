@@ -1,0 +1,125 @@
+.star {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background-color: var(--accent-gold);
+    opacity: 0.7;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.symbol-point {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--accent-cyan);
+    opacity: 0;
+    z-index: 2;
+    pointer-events: none;
+    animation: pulsePoint 3s ease-in-out infinite;
+}
+
+@keyframes pulsePoint {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.5); }
+}
+
+.star-connection {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-gold), var(--accent-cyan));
+    opacity: 0;
+    transform-origin: left center;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+/* Orbital Artifacts */
+.orbital-artifact {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    transition: transform 0.5s ease;
+}
+
+.orbital-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+.orbital-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: var(--accent-gold);
+    border-radius: 50%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: orbitRotate 15s linear infinite;
+}
+
+@keyframes orbitRotate {
+    0% { transform: translateX(-50%) rotate(0deg) translateY(-100px); }
+    100% { transform: translateX(-50%) rotate(360deg) translateY(-100px); }
+}
+
+/* Navigation Dots Visibility */
+.nav-dots {
+    position: fixed;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.nav-dots.visible {
+    opacity: 1;
+}
+
+/* Symbol Centering Fix */
+.symbol-glyph {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 24px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.symbol-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+/* Magical Particles */
+.magical-particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100;
+    transition: all 1s ease-out;
+}
